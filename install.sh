@@ -1,10 +1,11 @@
 #!/bin/bash
 
-DEST_PATH="$HOME/.config/hypr"
-SCRIPT_DIR="$(dirname "$(realpath $0)")/hypr"
-LAST_CMD_EXECUTED=$(fc -ln -1)
+DEST_PATH="$HOME/.config"
+BASE_DIR="$(dirname "$(realpath $0)")"
+HYPR_DIR="$BASE_DIR/hypr"
+HYPRPANEL_DIR="$BASE_DIR/hyprpanel"
 
 echo 'Creating symlink...'
 
-ln -ns $SCRIPT_DIR $DEST_PATH
-echo "$($LAST_CMD_EXECUTED | xargs)"
+ln -nvs $HYPR_DIR "$DEST_PATH/hypr"
+ln -nvs $HYPRPANEL_DIR "$DEST_PATH/hyprpanel"
