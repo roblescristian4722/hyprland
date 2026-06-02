@@ -1,9 +1,10 @@
 #!/bin/bash
 
-DEST_PATH="$HOME/.config"
+DEST_PATH="$HOME/.config/hypr"
+SCRIPT_DIR="$(dirname "$(realpath $0)")/hypr"
+LAST_CMD_EXECUTED=$(fc -ln -1)
 
-mkdir -p $DEST_PATH
+echo 'Creating symlink...'
 
-echo 'Copying conf files into $DEST_PATH...'
-
-cp -Rfv ./hypr/ $DEST_PATH
+ln -ns $SCRIPT_DIR $DEST_PATH
+echo "$($LAST_CMD_EXECUTED | xargs)"
